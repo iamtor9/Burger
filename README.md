@@ -1,4 +1,141 @@
-# Burger
+
+# my innovative directions Burger - Node Express Handlebars
+
+Overview
+Follow an MVC design pattern, create a burger logger with:
+
+1.	MySQL
+2.	 Node
+Use Node and MySQL to query and route data in your app
+3.	Express
+4.	Handlebars
+Handlebars to generate your HTML.
+5.	Homemade ORM 
+
+What this app does?
+Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat.
+
+Whenever a user submits a burger's name, your app will display the burger on the left side of the page -- waiting to be devoured.
+
+Each burger in the waiting area also has a Devour it! button. When the user clicks it, the burger will move to the right side of the page.
+
+Your app will store every burger in a database, whether devoured or not.
+
+Instructions
+
+App Setup
+Create GitHub repo called: burger (clone repo to your computer.)
+In your terminal:
+1.	Make package.json file by running: npm init 
+2.	Install Express npm package: npm install express.
+3.	Create a server.js file.: touch server.js
+4.	Install Handlebars npm package: npm install express-handlebars.
+5.	Install MySQL npm package: npm install mysql.
+6.	Inside server.js file require express (npm package)
+
+DB Setup
+1.	Inside your burger directory: create a folder named db.
+2.	In db folder: create file named schema.sql.
+a.	Write SQL queries in this file that do the following:
+-	Create the burgers_db.
+-	Switch to or use the burgers_db.
+-	Create a burgers table with these fields:
+-	id: an auto incrementing int that serves as the primary key.
+-	burger_name: a string.
+-	devoured: a boolean.
+3.	In the db folder: create a seeds.sql file. 
+a.	In this file, write insert queries to populate the burgers table with at least three entries.
+b.	Run the schema.sql and seeds.sql files into the mysql server from the command line.
+(Now you're going to run these SQL files -Make sure you're in the db folder of your app.)
+4.	Start MySQL command line tool and login: mysql -u root -p.
+5.	With the mysql> command line tool running, enter the command source schema.sql. 
+(This will run your schema file and all of the queries in it -- in other words, you'll be creating your database.)
+6.	Now insert the entries you defined in seeds.sql by running the file: source seeds.sql.
+7.	Close out of the MySQL command line tool: exit.
+
+Config Setup
+1.	Inside your burger directory: create a folder named config.
+a.	Create a connection.js file inside config directory.
+b.	Inside the connection.js file, setup the code to connect Node to MySQL.
+c.	Export the connection.
+2.	Create an orm.js file inside config directory.
+a.	Import (require) connection.js into orm.js
+b.	In the orm.js file, create the methods that will execute the necessary MySQL commands in the controllers. 
+(These are the methods you will need to use in order to retrieve and store data in your database.)
+selectAll()
+insertOne()
+updateOne()
+Export the ORM object in module.exports.
+
+Model setup
+1.	Inside your burger directory: create a folder named models.
+a.	In models, make a burger.js file.
+b.	Inside burger.js, import orm.js into burger.js
+c.	Also inside burger.js: create the code that will call the ORM functions using burger specific input for the ORM.
+2.	Export at the end of the burger.js file.
+
+Controller setup
+1.	Inside your burger directory,:create a folder named controllers.
+a.	In controllers: create the burgers_controller.js file.
+b.	Inside the burgers_controller.js file, import the following:
+-	Express
+-	burger.js
+2.	Create the router for the app, and export the router at the end of your file.
+
+View setup
+1.	Inside your burger directory: create a folder named views.
+a.	Create the index.handlebars file inside views directory.
+b.	Create the layouts directory inside views directory.
+c.	Create the main.handlebars file inside layouts directory.
+
+2.	Setup the main.handlebars file so it's able to be used by Handlebars.
+3.	Setup the index.handlebars to have the template that Handlebars can render onto.
+4.	Create a button in index.handlebars that will submit the user input into the database.
+
+
+
+Requirements: 
+Assignment must be deployed:
+1.	 Utilize the MYSQL Heroku Deployment Guide in order to deploy your assignment.
+2.	Submission on BCS -- Please submit both: 
+Deployed Heroku link to/in your homework && the link to the Github Repository!
+
+Minimum Requirements
+1.	Attempt to complete homework assignment as described in instructions. 
+2.	If unable to complete certain portions, please pseudocode these portions to describe what remains to be completed. 
+3.	Hosting on Heroku and adding a README.md are required for this homework. 
+4.	In addition, add this homework to your portfolio, more information can be found below.
+
+Hosting on Heroku
+Now that we have a backend to our applications, we use Heroku for hosting. 
+Please note that while Heroku is free, it will request credit card information if you have more than 5 applications at a time or are adding a database.
+Please see Heroku’s Account Verification Information for more details.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Node Express Handlebars
 

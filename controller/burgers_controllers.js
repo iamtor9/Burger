@@ -31,7 +31,7 @@ res.render("index");
   });
 
   // POST route for saving a new post
-  app.post("/api/posts", function(req, res) {
+  app.post("burger_db", function(req, res) {
     // Add sequelize code for creating a post using req.body,
     // then return the result using res.json
   });
@@ -43,7 +43,7 @@ res.render("index");
   });
 
   // PUT route for updating posts
-  app.put("/api/posts", function(req, res) {
+  app.put("burger_db", function(req, res) {
     // Add code here to update a post using the values in req.body, where the id is equal to
     // req.body.id and return the result to the user using res.json
   });

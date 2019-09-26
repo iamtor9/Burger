@@ -1,6 +1,7 @@
-module.exports = function (sequelize, DataTypes) {
+modules.exports = function (sequelize, DataTypes) {
     const Burger = sequelize.define("Burger", {
     });
+
     return Burger;
 
     const burger = sequelize.define("Post", {

@@ -1,6 +1,6 @@
 //importing node package express
 const express = require("express");
-const handlebars = require("express-handlebars");
+// const handlebars = require("express-handlebars");
 
 //app is going to use express package
 const app = express();
@@ -16,9 +16,14 @@ app.use(express.json());
 // Static directory
 app.use(express.static("public"));
 
+// Express Handle bars
+const exphbs = require("express-handlebars");
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 // Routes
 // =============================================================
-// require("./routes/api-routes.js")(app);
+require("./controller/burgers_controllers")(app);
 // require("./routes/html-routes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app

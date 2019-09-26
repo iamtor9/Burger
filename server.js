@@ -1,12 +1,12 @@
 //importing node package express
 const express = require("express");
-//const  = require("express-handlebars");
+const handlebars = require("express-handlebars");
 
 //app is going to use express package
 const app = express();
 const PORT = process.env.PORT || 4200;
 
-// Requiring our models for syncing
+// Requiring our models for syncing the burger.js & index.js
 const db = require("./models");
 
 // Sets up the Express app to handle data parsing

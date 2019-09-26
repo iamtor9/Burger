@@ -1,56 +1,50 @@
-//import express
-const express = require("express");
-const router = express.Router();
+// *********************************************************************************
+// api-routes.js - this file offers a set of routes for displaying and saving data to the db
+// *********************************************************************************
 
-// Import the model to use its database functions.
-const burger = require("../models/burger.js");
+// Dependencies
+// =============================================================
 
-// Create all our routes and set up logic within those routes where required.
-router.get("/", function(req, res) {
-burger.all(function(data) {
-    const handbarObj = {
-        burgers: data
-    };
-    // console.log(handbarObj);
-    res.render("index", handbarObj);
-});
-});
+// Requiring our Todo model
+var db = require("../models");
 
-router.post("/api/burgers", function(req, res) {
-burger.create([req.body.name], function(result) {
-    
-// return the ID 
-    res.json({ id: result.insertId });
-});
-});
+// Routes
+// =============================================================
+module.exports = function(app) {
 
-router.put("/api/burgers/:id", function(req, res) {
-const condition = "id = " + req.params.id;
+  // GET route for getting all of the posts
+  app.get("/", function(req, res) {
+    // Add sequelize code to find all posts, and return them to the user with res.json
+res.render("index");
+  });
 
-// console.log("condition", condition);
+  // Get route for returning posts of a specific category
+  app.get("/api/posts/category/:category", function(req, res) {
+    // Add sequelize code to find all posts where the category is equal to req.params.category,
+    // return the result to the user with res.json
+  });
 
-burger.update(req.body, condition, function(result) {
-    if (result.changedRows == 0) {
-        // If no rows were changed, then the ID must not exist, so 404
-        return res.status(404).end();
-    } else {
-        res.status(200).end();
-    }
-});
-});
+  // Get route for retrieving a single post
+  app.get("/api/posts/:id", function(req, res) {
+    // Add sequelize code to find a single post where the id is equal to req.params.id,
+    // return the result to the user with res.json
+  });
 
-router.delete("/api/burgers/:id", function(req, res) {
-const condition = "id = " + req.params.id;
+  // POST route for saving a new post
+  app.post("/api/posts", function(req, res) {
+    // Add sequelize code for creating a post using req.body,
+    // then return the result using res.json
+  });
 
-burger.delete(condition, function(result) {
-    if (result.affectedRows == 0) {
-        // If no rows were changed, then the ID must not exist, so 404
-        return res.status(404).end();
-    } else {
-        res.status(200).end();
-    }
-});
-});
+  // DELETE route for deleting posts
+  app.delete("/api/posts/:id", function(req, res) {
+    // Add sequelize code to delete a post where the id is equal to req.params.id, 
+    // then return the result to the user using res.json
+  });
 
-// Export routes for server.js to use.
-module.exports = router;
+  // PUT route for updating posts
+  app.put("/api/posts", function(req, res) {
+    // Add code here to update a post using the values in req.body, where the id is equal to
+    // req.body.id and return the result to the user using res.json
+  });
+};

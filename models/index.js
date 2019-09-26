@@ -1,14 +1,15 @@
-const fs = require("fs");
-const path = require("path");
-const Sequelize = require("sequelize");
-const basename = path.basename(module.filename);
-const env = process.env.NODE_ENV || "development";
-const config = require(__dirname + "/../config/babyT.json")[env];
-const db = {};
+var fs = require("fs");
+var path = require("path");
+var Sequelize = require("sequelize");
+var basename = path.basename(module.filename);
+var env = process.env.NODE_ENV || "development";
+var config = require(__dirname + "/../config/babyT.json")[env];
+var db = {};
+
 if (config.use_env_variable) {
- const sequelize = new Sequelize(process.env[config.use_env_variable]);
+ var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
- const sequelize = new Sequelize(config.database, config.username, config.password, config);
+ var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 fs
  .readdirSync(__dirname)

@@ -6,6 +6,7 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 4200;
 
+
 // Requiring our models for syncing the burger.js & index.js
 const db = require("./models");
 
@@ -18,16 +19,16 @@ app.use(express.static("public"));
 
 // Express Handle bars
 const exphbs = require("express-handlebars");
+
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Routes
-// =============================================================
-require("./controller/burgers_controllers")(app);
-// require("./routes/html-routes.js")(app);
+//require("./controller/burgers_controllers")(app);
+const routes = require("./routes/html-routes.js")(app);
+    app.use(routes);
 
 // Syncing our sequelize models and then starting our Express app
-// =============================================================
 db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);

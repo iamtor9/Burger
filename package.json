@@ -2,7 +2,7 @@
   "name": "burger",
   "version": "1.0.0",
   "description": "Overview Follow an MVC design pattern, create a burger logger with:",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/iamtor9/Burger.git"
   },
+  "keywords": [],
   "author": "moi",
   "license": "ISC",
   "bugs": {

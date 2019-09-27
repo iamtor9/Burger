@@ -25,7 +25,7 @@ app.set("view engine", "handlebars");
 
 // Routes
 //require("./controller/burgers_controllers")(app);
-const routes = require("./routes/html-routes.js")(app);
+const routes = require("./controller/burgers_controllers")(app);
     app.use(routes);
 
 // Syncing our sequelize models and then starting our Express app

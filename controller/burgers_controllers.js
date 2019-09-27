@@ -7,45 +7,51 @@ let db = require("../models");
 
 // GET callback request to models path
 router.get("/", function(req, res) {
-    db.burger.findAll({}).then(function(burgers) {
-        res.render("index", { burger: burgers });
+    db.Burger.findAll({}).then(function(dbBurgers) {
+        const Burgers = {
+            burgers:dbBurger
+        };   
+
+        res.render("index", Burgers);
       });
   });
   
-// create POST from model router
+// create PUT from model router
 //req dat body.burger_name
-router.post("/", function(req, res) {
-
-db.burger.create({
-    burger_name: req.body.burger_name
-})
-    .then(function() {
-        return res.redirect("/");
-});
-
-});
-
-//create the PUT callback request
 router.put("/", function(req, res) {
+    db.Burger.update(
+        devoured = req.body.devoured,
+        {
+            where:{
+                id:req.body.id
+            }
+        }).then(function(dbBurger) {
+             res.json(dbBurger);
+        });
 
-
-// create UPDATE for tbl key--devoured to be true
-//make a callback promise that returns the updated key value to be true
-// req.body.id -- see class activity notes
-//comes from the models path!!
-db.burger.update(
-    {
-    devoured: true
-    },
-    {
-    where: {
-        id: req.body.id
-    }
-
-    }).then(function() {
-        return res.redirect("/");
-    });
 });
+
+// //create the PUT callback request
+// router.put("/", function(req, res) {
+
+
+// // create UPDATE for tbl key--devoured to be true
+// //make a callback promise that returns the updated key value to be true
+// // req.body.id -- see class activity notes
+// //comes from the models path!!
+// db.burger.update(
+//     {
+//     devoured: true
+//     },
+//     {
+//     where: {
+//         id: req.body.id
+//     }
+
+//     }).then(function() {
+//         return res.redirect("/");
+//     });
+// });
 
 module.exports = router;
 

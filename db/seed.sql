@@ -1,5 +1,5 @@
 --third time is a charm?
--- use the burger db!!!!!! duh.
+-- use the burger db!!!!!! duh. haha
 -- insert into burgers, then input values
 USE burger_db;
 

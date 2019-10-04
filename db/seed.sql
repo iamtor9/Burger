@@ -4,19 +4,19 @@
 USE burger_db;
 
 INSERT INTO burgers (name, devoured, createdAt, updatedAt) 
-VALUES ("bae burger", false, CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
+VALUES ("bae burger", false, NOW (),NOW());
 
 INSERT INTO burgers (name, devoured, createdAt, updatedAt) 
-VALUES ("juicy lucy", false, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+VALUES ("juicy lucy", false, NOW(), NOW());
 
 INSERT INTO burgers (name, devoured, createdAt, updatedAt) 
-VALUES ("Bomb burger", true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+VALUES ("Bomb burger", true, NOW(), NOW());
 
 INSERT INTO burgers (name, devoured, createdAt, updatedAt) 
-VALUES ("spooky boo burger", false, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+VALUES ("spooky boo burger", false, NOW(), NOW());
 
 INSERT INTO burgers (name, devoured, createdAt, updatedAt) 
-VALUES ("baller burger", true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+VALUES ("baller burger", true, NOW(), NOW());
 
 
 --second code attmpt

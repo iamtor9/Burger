@@ -1,6 +1,8 @@
+
+
 //importing node package express
 const express = require("express");
-// const handlebars = require("express-handlebars");
+//const handlebars = require("express-handlebars");
 
 //app is going to use express package
 const app = express();
@@ -25,13 +27,13 @@ app.set("view engine", "handlebars");
 
 // Routes
 //require("./controller/burgers_controllers")(app);
-const routes = require("./controller/burgers_controllers")(app);
-    app.use(routes);
+require("./controller/burgers_controllers");
+   
 
 // Syncing our sequelize models and then starting our Express app
 db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
+    console.log("App listening on PORT" + PORT);
   });
 });
 

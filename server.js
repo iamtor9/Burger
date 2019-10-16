@@ -6,7 +6,7 @@ const express = require("express");
 
 //app is going to use express package
 const app = express();
-const PORT = process.env.PORT || 8889;
+const PORT = process.env.PORT || 4200;
 
 
 // Requiring our models for syncing the burger.js & index.js
@@ -27,8 +27,8 @@ app.set("view engine", "handlebars");
 
 // Routes
 //require("./controller/burgers_controllers")(app);
-require("./controller/burgers_controllers");
-   
+const routez = require("./controller/burgers_controllers");
+   app.use(routez);
 
 // Syncing our sequelize models and then starting our Express app
 db.sequelize.sync({ force: true }).then(function() {

@@ -9,7 +9,7 @@ let db = require("../models");
 router.get("/", function(req, res) {
     db.Burger.findAll({}).then(function(dbBurgers) {
         const Burgers = {
-            burgers:dbBurger
+            burgers:dbBurgers
         };   
 
         res.render("index", Burgers);

@@ -6,7 +6,7 @@ const express = require("express");
 
 //app is going to use express package
 const app = express();
-const PORT = process.env.PORT || 4200;
+const PORT = process.env.PORT || 8889;
 
 
 // Requiring our models for syncing the burger.js & index.js
